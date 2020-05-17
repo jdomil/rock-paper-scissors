@@ -7,12 +7,13 @@
 </head>
 <body>
     <script>
+        // Computer to make selectio randomly
         function computerPlay() {
             let selectionArray = ["Rock", "Paper", "Scissors"];
             let randomIndex = Math.floor(Math.random() * Math.floor(3));
             return finalSelection = selectionArray[randomIndex];
         };
-
+        // Define round winner
         function playRound(playerSelection, computerSelection) {
 
             if (((playerSelection == "Rock" && computerSelection == "Paper") 
@@ -25,9 +26,9 @@
                 return winner = 0;
             } else {
                 return;
-            }
+            };
         };
-
+        // Displaying round winner and keeping record of scores
         function game() {
             let scoreCounter = [0, 0];
             for (let i = 0; i < 5; i++) {
@@ -39,23 +40,26 @@
 
                 switch (roundResult) {
                     case 0:
-                        console.log(`Yo Lose! ${computerSelection} beats ${capitalizedPlayerSelection}`);
+                        console.log(`Yo Lose! ${computerSelection} beats 
+                        ${capitalizedPlayerSelection}`);
                         scoreCounter[1]++;
                         break;
                     case 1:
-                        console.log(`Yo Win! ${capitalizedPlayerSelection} beats ${computerSelection}`);
+                        console.log(`Yo Win! ${capitalizedPlayerSelection} beats 
+                        ${computerSelection}`);
                         scoreCounter[0]++;
                         break;
                     default:
                         console.log("That's a tie!");
                         i--;
                         break;
-                }
+                };
 
                 if (scoreCounter[0] >= 3 || scoreCounter[1] >=3) {
                     break;
                 };
-            }
+            };
+            // Best of 5: finish game when player wins 3
             if (scoreCounter[0] > scoreCounter[1]) {
                 console.log("Winner winner, chicken dinner!");
             } else {
